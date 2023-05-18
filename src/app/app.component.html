@@ -1,0 +1,24 @@
+<div class="container">
+
+  <h1>FormBuilder</h1>
+
+  <form [formGroup]="profileForm">
+
+    <h4> Perfil </h4>
+
+    <div class="mb-3">
+      <label for="firstName">Primer Nombre</label>
+      <input type="text" name="firstName" class="form-control" formControlName="firstName"> 
+    </div>   
+    
+    <div formArrayName="aliases">
+      <h5>Alias</h5>
+      <div *ngFor="let alias of aliases.controls; let i=index">
+        <label for="alias-{{ i }}">Alias:</label>
+        <input id="alias-{{ i }}" type="text" class="form-control" [formControlName]="i">
+      </div>
+    </div>
+
+  </form>
+
+</div>
